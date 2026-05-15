@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Roles & Responsibilities — GSS VP Students</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --periwinkle: #7B82D4; --periwinkle-mid: #9DA4E0; --periwinkle-lt: #C5C9F0;
+  --periwinkle-xlt: #ECEEFF; --blue-mid: #89BBE8; --blue-lt: #BDD9F5;
+  --blue-xlt: #E5F2FC; --lavender: #B8A9E3; --lavender-lt: #EDE8FA;
+  --navy: #2E3175; --navy-mid: #4A4FA3; --white: #FFFFFF;
+  --gray-50: #F8F8FC; --gray-100: #EDEDF5; --gray-300: #C4C4D8;
+  --gray-600: #6B6B8A; --gray-800: #2D2D42;
+}
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--gray-50); color: var(--gray-800); min-height: 100vh; }
+nav { background: var(--white); border-bottom: 1px solid var(--gray-100); position: sticky; top: 0; z-index: 100; }
+.nav-inner { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; }
+.nav-logo { font-weight: 700; font-size: 14px; color: var(--navy); text-decoration: none; padding: 1rem 1rem 1rem 0; margin-right: 1rem; border-right: 1px solid var(--gray-100); white-space: nowrap; }
+.nav-links { display: flex; overflow-x: auto; scrollbar-width: none; flex: 1; }
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-links a { text-decoration: none; font-size: 13px; font-weight: 500; color: var(--gray-600); padding: 1rem 0.85rem; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.15s; }
+.nav-links a:hover { color: var(--periwinkle); }
+.nav-links a.active { color: var(--navy); border-bottom-color: var(--periwinkle); }
+.page-header { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, var(--periwinkle) 100%); padding: 3rem 1.5rem 2.5rem; position: relative; overflow: hidden; }
+.page-header::before { content: ''; position: absolute; top: -80px; right: -80px; width: 300px; height: 300px; border-radius: 50%; background: rgba(255,255,255,0.05); }
+.page-header-inner { max-width: 960px; margin: 0 auto; position: relative; }
+.page-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--periwinkle-lt); margin-bottom: 0.6rem; }
+.page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); color: white; line-height: 1.15; margin-bottom: 0.6rem; }
+.page-header p { font-size: 15px; color: rgba(255,255,255,0.65); max-width: 520px; line-height: 1.65; font-weight: 300; }
+main { max-width: 960px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+.section-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--periwinkle); margin-bottom: 0.4rem; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 0.5rem; }
+.section-lead { font-size: 15px; color: var(--gray-600); line-height: 1.7; max-width: 600px; margin-bottom: 2rem; font-weight: 300; }
+.divider { border: none; border-top: 1px solid var(--gray-100); margin: 2.5rem 0; }
+
+.roles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; margin-bottom: 2rem; }
+.role-card { background: var(--white); border: 1px solid var(--gray-100); border-radius: 14px; padding: 1.5rem; position: relative; overflow: hidden; }
+.role-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+.role-card.v1::before { background: var(--periwinkle); }
+.role-card.v2::before { background: var(--blue-mid); }
+.role-card.v3::before { background: var(--lavender); }
+.role-card.v4::before { background: var(--periwinkle-mid); }
+.card-icon { font-size: 1.6rem; margin-bottom: 0.85rem; }
+.role-card h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
+.role-card .role-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--periwinkle); margin-bottom: 0.65rem; }
+.role-card p { font-size: 14px; color: var(--gray-600); line-height: 1.65; font-weight: 300; }
+
+.committees-list { display: grid; gap: 0.75rem; margin-bottom: 2rem; }
+.committee-item { background: var(--white); border: 1px solid var(--gray-100); border-radius: 12px; padding: 1.25rem 1.5rem; display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start; }
+.committee-item h4 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
+.committee-item p { font-size: 13px; color: var(--gray-600); line-height: 1.6; font-weight: 300; }
+.badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 20px; background: var(--periwinkle-xlt); color: var(--navy-mid); white-space: nowrap; }
+
+.council-box { background: var(--blue-xlt); border: 1px solid var(--blue-lt); border-radius: 14px; padding: 1.75rem; }
+.council-box h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--navy); margin-bottom: 0.6rem; }
+.council-box p { font-size: 14px; color: var(--gray-600); line-height: 1.7; font-weight: 300; margin-bottom: 0.75rem; }
+.link-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: var(--navy-mid); text-decoration: none; padding: 0.55rem 1.2rem; border: 1.5px solid var(--periwinkle-lt); border-radius: 8px; background: var(--white); transition: background 0.15s; }
+.link-btn:hover { background: var(--periwinkle-xlt); }
+
+footer { background: var(--navy); color: rgba(255,255,255,0.45); text-align: center; padding: 1.5rem; font-size: 12px; }
+footer a { color: var(--periwinkle-lt); text-decoration: none; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">GSS VP Students</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="roles.html" class="active">Roles & Responsibilities</a>
+      <a href="events.html">Events</a>
+      <a href="aos.html">Affiliated Orgs</a>
+      <a href="staff.html">Executive & Staff</a>
+      <a href="projects.html">Ongoing Projects</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <p class="page-eyebrow">VP Students</p>
+    <h1>Roles & Responsibilities</h1>
+    <p>An overview of what the VP Students does, the key areas of responsibility, and committee involvement within the GSS.</p>
+  </div>
+</div>
+
+<main>
+  <p class="section-eyebrow">The role</p>
+  <h2 class="section-title">What the VP Students Does</h2>
+  <p class="section-lead">The VP Students manages graduate student programs and services — including budgeting, social events, advocacy, and collaborations with Affiliate Organizations and partners across UBC.</p>
+
+  <div class="roles-grid">
+    <div class="role-card v1">
+      <div class="card-icon">🎉</div>
+      <div class="role-label">Social Events</div>
+      <h3>Community & Events</h3>
+      <p>Plans and organizes social events, programs, workshops, and classes for graduate students across UBC, plus networking opportunities with the broader grad community.</p>
+    </div>
+    <div class="role-card v2">
+      <div class="card-icon">🤝</div>
+      <div class="role-label">Partnerships</div>
+      <h3>Affiliate Organizations</h3>
+      <p>Manages relationships with GSS Affiliate Organizations, coordinates funding applications, event promotion through GSS channels, and collaborative opportunities.</p>
+    </div>
+    <div class="role-card v3">
+      <div class="card-icon">📋</div>
+      <div class="role-label">Administration</div>
+      <h3>Programs & Services</h3>
+      <p>Oversees budgeting and delivery of graduate student programs and services, including the AO funding pool of $1,000 per organization per academic year.</p>
+    </div>
+    <div class="role-card v4">
+      <div class="card-icon">📣</div>
+      <div class="role-label">Advocacy</div>
+      <h3>Student Advocacy</h3>
+      <p>Advocates for graduate student interests and ensures graduate student voices are represented in planning events and programs that serve the wider community.</p>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <p class="section-eyebrow">Committees</p>
+  <h2 class="section-title">Committee Involvement</h2>
+  <p class="section-lead">The VP Students works alongside the following GSS committees. All committee meetings are open to current UBC graduate students.</p>
+
+  <div class="committees-list">
+    <div class="committee-item">
+      <div>
+        <h4>Elections & Engagement Committee</h4>
+        <p>Manages the Society's referendums and annual elections, plans social events, programs, workshops, classes, and networking opportunities for grad students.</p>
+      </div>
+      <span class="badge">Biweekly / Monthly</span>
+    </div>
+    <div class="committee-item">
+      <div>
+        <h4>Academic & External Affairs Committee</h4>
+        <p>Lobbies important academic and personal issues to the University and externally, and conducts research such as the annual GSS Student Satisfaction Survey.</p>
+      </div>
+      <span class="badge">Bi-monthly</span>
+    </div>
+    <div class="committee-item">
+      <div>
+        <h4>House Finance Committee</h4>
+        <p>Directs and manages the financial wellbeing of the Society and oversees the use of facilities at the Graduate Student Centre at Thea Koerner House.</p>
+      </div>
+      <span class="badge">Biweekly</span>
+    </div>
+    <div class="committee-item">
+      <div>
+        <h4>Human Resources Committee</h4>
+        <p>Ensures the Society is staffed with a strong team, monitors staffing needs, and oversees staff recruitment and performance evaluations.</p>
+      </div>
+      <span class="badge">Bimonthly</span>
+    </div>
+    <div class="committee-item">
+      <div>
+        <h4>Governance & Accountability Committee</h4>
+        <p>Engages in strategic planning, reviews the governance structure of the Society, and oversees the performance of all other committees.</p>
+      </div>
+      <span class="badge">Bimonthly</span>
+    </div>
+    <div class="committee-item">
+      <div>
+        <h4>Indigenous Engagements Ad Hoc Committee</h4>
+        <p>Provides culturally-relevant recommendations to the GSS Council to promote indigeneity, Indigenous representation, equity, and reconciliation within the Society.</p>
+      </div>
+      <span class="badge">Bimonthly</span>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <p class="section-eyebrow">GSS Council</p>
+  <h2 class="section-title">Council Role</h2>
+  <p class="section-lead">The VP Students participates in GSS Council, the primary governing body made up of elected departmental representatives, the executive team, and graduate student senators.</p>
+
+  <div class="council-box">
+    <h3>Monthly Council Meetings</h3>
+    <p>Council meets on the third Thursday of every month in the Michael Kingsmill Forum (Room 4301) in the AMS Student Nest, from 5:30 – 7:30 pm. All meetings are open to graduate students to attend.</p>
+    <a class="link-btn" href="https://gss.ubc.ca/council/" target="_blank">Learn About Council ↗</a>
+  </div>
+</main>
+
+<footer>
+  <p>Information sourced from <a href="https://gss.ubc.ca" target="_blank">gss.ubc.ca</a> · Graduate Student Society of UBC Vancouver</p>
+</footer>
+</body>
+</html>

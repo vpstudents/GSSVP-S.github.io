@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ongoing Projects — GSS VP Students</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --periwinkle: #7B82D4; --periwinkle-mid: #9DA4E0; --periwinkle-lt: #C5C9F0;
+  --periwinkle-xlt: #ECEEFF; --blue-mid: #89BBE8; --blue-lt: #BDD9F5;
+  --blue-xlt: #E5F2FC; --lavender: #B8A9E3; --lavender-lt: #EDE8FA;
+  --navy: #2E3175; --navy-mid: #4A4FA3; --white: #FFFFFF;
+  --gray-50: #F8F8FC; --gray-100: #EDEDF5; --gray-600: #6B6B8A; --gray-800: #2D2D42;
+  --green: #4CAF82; --green-lt: #E8F7F0;
+  --amber: #E8A020; --amber-lt: #FEF5E4;
+}
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--gray-50); color: var(--gray-800); min-height: 100vh; }
+nav { background: var(--white); border-bottom: 1px solid var(--gray-100); position: sticky; top: 0; z-index: 100; }
+.nav-inner { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; }
+.nav-logo { font-weight: 700; font-size: 14px; color: var(--navy); text-decoration: none; padding: 1rem 1rem 1rem 0; margin-right: 1rem; border-right: 1px solid var(--gray-100); white-space: nowrap; }
+.nav-links { display: flex; overflow-x: auto; scrollbar-width: none; flex: 1; }
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-links a { text-decoration: none; font-size: 13px; font-weight: 500; color: var(--gray-600); padding: 1rem 0.85rem; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.15s; }
+.nav-links a:hover { color: var(--periwinkle); }
+.nav-links a.active { color: var(--navy); border-bottom-color: var(--periwinkle); }
+.page-header { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, var(--periwinkle) 100%); padding: 3rem 1.5rem 2.5rem; position: relative; overflow: hidden; }
+.page-header::before { content: ''; position: absolute; top: -80px; right: -80px; width: 300px; height: 300px; border-radius: 50%; background: rgba(255,255,255,0.05); }
+.page-header-inner { max-width: 960px; margin: 0 auto; position: relative; }
+.page-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--periwinkle-lt); margin-bottom: 0.6rem; }
+.page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); color: white; line-height: 1.15; margin-bottom: 0.6rem; }
+.page-header p { font-size: 15px; color: rgba(255,255,255,0.65); max-width: 520px; line-height: 1.65; font-weight: 300; }
+main { max-width: 960px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+.section-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--periwinkle); margin-bottom: 0.4rem; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 0.5rem; }
+.section-lead { font-size: 15px; color: var(--gray-600); line-height: 1.7; max-width: 600px; margin-bottom: 2rem; font-weight: 300; }
+.divider { border: none; border-top: 1px solid var(--gray-100); margin: 2.5rem 0; }
+
+/* STATUS BADGES */
+.status { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; }
+.status.active { background: var(--green-lt); color: #2D7A57; }
+.status.progress { background: var(--periwinkle-xlt); color: var(--navy-mid); }
+.status.planned { background: var(--amber-lt); color: #8A5E10; }
+.status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.status.active::before { background: var(--green); }
+.status.progress::before { background: var(--periwinkle); }
+.status.planned::before { background: var(--amber); }
+
+/* PROJECT CARDS */
+.projects-list { display: grid; gap: 1.25rem; margin-bottom: 2rem; }
+.project-card { background: var(--white); border: 1px solid var(--gray-100); border-radius: 14px; padding: 1.5rem 1.75rem; position: relative; overflow: hidden; }
+.project-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
+.project-card.v1::before { background: var(--periwinkle); }
+.project-card.v2::before { background: var(--blue-mid); }
+.project-card.v3::before { background: var(--lavender); }
+.project-card.v4::before { background: var(--periwinkle-mid); }
+.project-card.v5::before { background: var(--blue-lt); }
+
+.project-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+.project-card h3 { font-size: 16px; font-weight: 700; color: var(--navy); }
+.project-card p { font-size: 14px; color: var(--gray-600); line-height: 1.65; font-weight: 300; margin-bottom: 1rem; }
+
+.project-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.meta-tag { font-size: 11px; font-weight: 500; color: var(--gray-600); background: var(--gray-50); border: 1px solid var(--gray-100); padding: 3px 10px; border-radius: 20px; }
+
+/* PROGRESS BAR */
+.progress-wrap { margin-top: 1rem; }
+.progress-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--gray-600); margin-bottom: 5px; font-weight: 500; }
+.progress-track { background: var(--gray-100); border-radius: 4px; height: 6px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 4px; background: var(--periwinkle); transition: width 0.6s ease; }
+
+/* PLACEHOLDER */
+.placeholder-card { background: var(--white); border: 1.5px dashed var(--gray-100); border-radius: 14px; padding: 2rem; text-align: center; color: var(--gray-600); }
+.placeholder-card p { font-size: 14px; font-weight: 300; line-height: 1.6; }
+.placeholder-card .ph-icon { font-size: 2rem; margin-bottom: 0.75rem; opacity: 0.4; }
+
+footer { background: var(--navy); color: rgba(255,255,255,0.45); text-align: center; padding: 1.5rem; font-size: 12px; }
+footer a { color: var(--periwinkle-lt); text-decoration: none; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">GSS VP Students</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="roles.html">Roles & Responsibilities</a>
+      <a href="events.html">Events</a>
+      <a href="aos.html">Affiliated Orgs</a>
+      <a href="staff.html">Executive & Staff</a>
+      <a href="projects.html" class="active">Ongoing Projects</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <p class="page-eyebrow">VP Students</p>
+    <h1>Ongoing Projects</h1>
+    <p>Current initiatives and plans being pursued by the VP Students portfolio this academic year.</p>
+  </div>
+</div>
+
+<main>
+  <p class="section-eyebrow">This year's work</p>
+  <h2 class="section-title">Current Initiatives</h2>
+  <p class="section-lead">This page tracks the key projects the VP Students is working on. Update it throughout the year as projects progress or new ones begin.</p>
+
+  <div class="projects-list">
+
+    <div class="project-card v1">
+      <div class="project-top">
+        <h3>AO Engagement & Outreach</h3>
+        <span class="status active">Active</span>
+      </div>
+      <p>Growing the Affiliate Organization program by reaching out to graduate departments that aren't yet affiliated, running onboarding sessions, and maintaining the AO Discord as a space for real-time collaboration and support.</p>
+      <div class="project-meta">
+        <span class="meta-tag">📅 Year-round</span>
+        <span class="meta-tag">👤 VP Students</span>
+        <span class="meta-tag">🤝 AO Program</span>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Progress</span><span>Ongoing</span></div>
+        <div class="progress-track"><div class="progress-fill" style="width: 60%;"></div></div>
+      </div>
+    </div>
+
+    <div class="project-card v2">
+      <div class="project-top">
+        <h3>Social Events Calendar — 2025/26</h3>
+        <span class="status active">Active</span>
+      </div>
+      <p>Planning and delivering a full academic year of social events for graduate students, including orientation events, seasonal celebrations, games nights, and collaborative events with AOs across UBC departments.</p>
+      <div class="project-meta">
+        <span class="meta-tag">📅 Sep 2025 – Apr 2026</span>
+        <span class="meta-tag">🎉 Events</span>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Progress</span><span>In progress</span></div>
+        <div class="progress-track"><div class="progress-fill" style="width: 50%;"></div></div>
+      </div>
+    </div>
+
+    <div class="project-card v3">
+      <div class="project-top">
+        <h3>Student Satisfaction Survey (GSS-SSS)</h3>
+        <span class="status progress">In progress</span>
+      </div>
+      <p>Working with the Academic & External Affairs Committee to prepare, administer, and analyze the annual GSS Student Satisfaction Survey — gathering data on supervision, housing, harassment, and other key graduate student concerns.</p>
+      <div class="project-meta">
+        <span class="meta-tag">📊 Research & Advocacy</span>
+        <span class="meta-tag">👥 With Committees</span>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Progress</span><span>~40%</span></div>
+        <div class="progress-track"><div class="progress-fill" style="width: 40%;"></div></div>
+      </div>
+    </div>
+
+    <div class="project-card v4">
+      <div class="project-top">
+        <h3>AO Funding Review</h3>
+        <span class="status progress">In progress</span>
+      </div>
+      <p>Reviewing the current AO funding structure and application process to identify improvements. Goal is to make the process clearer and more accessible for new and existing AOs applying for event funds.</p>
+      <div class="project-meta">
+        <span class="meta-tag">💰 Finance</span>
+        <span class="meta-tag">📋 Policy</span>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Progress</span><span>~25%</span></div>
+        <div class="progress-track"><div class="progress-fill" style="width: 25%;"></div></div>
+      </div>
+    </div>
+
+    <div class="project-card v5">
+      <div class="project-top">
+        <h3>End-of-Year Celebration</h3>
+        <span class="status planned">Planned</span>
+      </div>
+      <p>Planning an end-of-year celebration event for UBC graduate students and AO partners — recognizing the contributions of the grad community over the 2025/26 academic year.</p>
+      <div class="project-meta">
+        <span class="meta-tag">📅 April 2026</span>
+        <span class="meta-tag">🎊 Events</span>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>Progress</span><span>Planning stage</span></div>
+        <div class="progress-track"><div class="progress-fill" style="width: 10%;"></div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="divider" />
+
+  <p class="section-eyebrow">Add more</p>
+  <h2 class="section-title">Your Projects Here</h2>
+  <p class="section-lead">Edit this page to add more projects, update progress bars, or change statuses as the year unfolds.</p>
+
+  <div class="placeholder-card">
+    <div class="ph-icon">➕</div>
+    <p>More projects can be added here throughout the year. Edit <code>projects.html</code> to add new project cards, update the progress bars, or change statuses between <strong>Active</strong>, <strong>In Progress</strong>, and <strong>Planned</strong>.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>Information sourced from <a href="https://gss.ubc.ca" target="_blank">gss.ubc.ca</a> · Graduate Student Society of UBC Vancouver</p>
+</footer>
+</body>
+</html>

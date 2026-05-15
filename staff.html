@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Executive & Staff — GSS VP Students</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --periwinkle: #7B82D4; --periwinkle-mid: #9DA4E0; --periwinkle-lt: #C5C9F0;
+  --periwinkle-xlt: #ECEEFF; --blue-mid: #89BBE8; --blue-lt: #BDD9F5;
+  --blue-xlt: #E5F2FC; --lavender: #B8A9E3; --lavender-lt: #EDE8FA;
+  --navy: #2E3175; --navy-mid: #4A4FA3; --white: #FFFFFF;
+  --gray-50: #F8F8FC; --gray-100: #EDEDF5; --gray-600: #6B6B8A; --gray-800: #2D2D42;
+}
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--gray-50); color: var(--gray-800); min-height: 100vh; }
+nav { background: var(--white); border-bottom: 1px solid var(--gray-100); position: sticky; top: 0; z-index: 100; }
+.nav-inner { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; }
+.nav-logo { font-weight: 700; font-size: 14px; color: var(--navy); text-decoration: none; padding: 1rem 1rem 1rem 0; margin-right: 1rem; border-right: 1px solid var(--gray-100); white-space: nowrap; }
+.nav-links { display: flex; overflow-x: auto; scrollbar-width: none; flex: 1; }
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-links a { text-decoration: none; font-size: 13px; font-weight: 500; color: var(--gray-600); padding: 1rem 0.85rem; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.15s; }
+.nav-links a:hover { color: var(--periwinkle); }
+.nav-links a.active { color: var(--navy); border-bottom-color: var(--periwinkle); }
+.page-header { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, var(--periwinkle) 100%); padding: 3rem 1.5rem 2.5rem; position: relative; overflow: hidden; }
+.page-header::before { content: ''; position: absolute; top: -80px; right: -80px; width: 300px; height: 300px; border-radius: 50%; background: rgba(255,255,255,0.05); }
+.page-header-inner { max-width: 960px; margin: 0 auto; position: relative; }
+.page-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--periwinkle-lt); margin-bottom: 0.6rem; }
+.page-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); color: white; line-height: 1.15; margin-bottom: 0.6rem; }
+.page-header p { font-size: 15px; color: rgba(255,255,255,0.65); max-width: 520px; line-height: 1.65; font-weight: 300; }
+main { max-width: 960px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+.section-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--periwinkle); margin-bottom: 0.4rem; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 0.5rem; }
+.section-lead { font-size: 15px; color: var(--gray-600); line-height: 1.7; max-width: 600px; margin-bottom: 2rem; font-weight: 300; }
+.divider { border: none; border-top: 1px solid var(--gray-100); margin: 2.5rem 0; }
+
+.staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.25rem; margin-bottom: 2rem; }
+.staff-card { background: var(--white); border: 1px solid var(--gray-100); border-radius: 14px; padding: 1.5rem; }
+.staff-card.highlight { border-color: var(--periwinkle-lt); background: var(--periwinkle-xlt); }
+
+.staff-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--periwinkle-xlt); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 16px; color: var(--navy-mid); margin-bottom: 1rem; border: 2px solid var(--periwinkle-lt); }
+.staff-card.highlight .staff-avatar { background: var(--periwinkle-lt); }
+
+.staff-card h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
+.staff-role { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--periwinkle); margin-bottom: 0.75rem; }
+.staff-card p { font-size: 13px; color: var(--gray-600); line-height: 1.6; font-weight: 300; margin-bottom: 0.9rem; }
+
+.hours-box { background: var(--gray-50); border-radius: 8px; padding: 0.75rem 1rem; font-size: 12px; color: var(--gray-600); line-height: 1.65; margin-bottom: 0.75rem; }
+.staff-card.highlight .hours-box { background: rgba(255,255,255,0.6); }
+.hours-label { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray-600); margin-bottom: 4px; }
+
+.staff-email { font-size: 13px; }
+.staff-email a { color: var(--navy-mid); text-decoration: none; font-weight: 500; }
+.staff-email a:hover { text-decoration: underline; }
+
+.council-box { background: var(--blue-xlt); border: 1px solid var(--blue-lt); border-radius: 14px; padding: 1.75rem; }
+.council-box h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--navy); margin-bottom: 0.6rem; }
+.council-box p { font-size: 14px; color: var(--gray-600); line-height: 1.7; font-weight: 300; margin-bottom: 1rem; }
+.link-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; color: var(--navy-mid); text-decoration: none; padding: 0.55rem 1.2rem; border: 1.5px solid var(--periwinkle-lt); border-radius: 8px; background: var(--white); transition: background 0.15s; }
+.link-btn:hover { background: var(--periwinkle-xlt); }
+
+footer { background: var(--navy); color: rgba(255,255,255,0.45); text-align: center; padding: 1.5rem; font-size: 12px; }
+footer a { color: var(--periwinkle-lt); text-decoration: none; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">GSS VP Students</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="roles.html">Roles & Responsibilities</a>
+      <a href="events.html">Events</a>
+      <a href="aos.html">Affiliated Orgs</a>
+      <a href="staff.html" class="active">Executive & Staff</a>
+      <a href="projects.html">Ongoing Projects</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <p class="page-eyebrow">VP Students</p>
+    <h1>Executive & Staff</h1>
+    <p>Meet the GSS executive team, their portfolios, open office hours, and contact information for the 2025–2026 academic year.</p>
+  </div>
+</div>
+
+<main>
+  <p class="section-eyebrow">Executive team</p>
+  <h2 class="section-title">GSS Executives</h2>
+  <p class="section-lead">The GSS is led by five elected graduate students who work together to serve the interests of all UBC graduate students.</p>
+
+  <div class="staff-grid">
+
+    <div class="staff-card">
+      <div class="staff-avatar">HL</div>
+      <h3>Hayley Lawrence</h3>
+      <div class="staff-role">President</div>
+      <p>Tackles an ambitious set of goals to support graduate students while carefully coordinating the work of the GSS as a whole.</p>
+      <div class="hours-box">
+        <span class="hours-label">Open Office Hours</span>
+        Fridays: 10 am – 12 pm &amp; 2 pm – 4 pm
+      </div>
+      <div class="staff-email">✉ <a href="mailto:president@gss.ubc.ca">president@gss.ubc.ca</a></div>
+    </div>
+
+    <div class="staff-card">
+      <div class="staff-avatar">GL</div>
+      <h3>Gautam Luhana</h3>
+      <div class="staff-role">VP University & Academic Affairs</div>
+      <p>Connects graduate students with the UBC Administration and the Faculty of Graduate and Postdoctoral Studies, consulting and advocating for graduate student concerns.</p>
+      <div class="hours-box">
+        <span class="hours-label">Open Office Hours</span>
+        Tuesdays: 12:30 – 2:30 pm<br/>Thursdays: 11 am – 12:30 pm
+      </div>
+      <div class="staff-email">✉ <a href="mailto:vpacademic@gss.ubc.ca">vpacademic@gss.ubc.ca</a></div>
+    </div>
+
+    <div class="staff-card">
+      <div class="staff-avatar">CA</div>
+      <h3>Charles Adkins</h3>
+      <div class="staff-role">VP External Relations</div>
+      <p>Builds and maintains the grad community's connections with external bodies, making sure the graduate student voice is heard by legislators and student organizations.</p>
+      <div class="hours-box">
+        <span class="hours-label">Open Office Hours</span>
+        Tuesdays: 11 am – 12:30 pm<br/>Thursdays: 11 am – 12:30 pm<br/>Fridays: 10 am – 1 pm
+      </div>
+      <div class="staff-email">✉ <a href="mailto:vpexternal@gss.ubc.ca">vpexternal@gss.ubc.ca</a></div>
+    </div>
+
+    <div class="staff-card highlight">
+      <div class="staff-avatar">MT</div>
+      <h3>Mahder Teffera</h3>
+      <div class="staff-role">VP Students</div>
+      <p>Manages graduate student programs and services, including budgeting, social events, advocacy, and collaborations with partners and Affiliate Organizations.</p>
+      <div class="hours-box">
+        <span class="hours-label">Open Office Hours</span>
+        Tuesdays: 11 am – 2 pm
+      </div>
+      <div class="staff-email">✉ <a href="mailto:vpstudents@gss.ubc.ca">vpstudents@gss.ubc.ca</a></div>
+    </div>
+
+    <div class="staff-card">
+      <div class="staff-avatar">CL</div>
+      <h3>Cesar Landin</h3>
+      <div class="staff-role">Financial Officer</div>
+      <p>Oversees the financial administration of the Society, including the annual budget, and ensures the long-term financial viability of the GSS.</p>
+      <div class="hours-box">
+        <span class="hours-label">Open Office Hours</span>
+        Wednesdays: 11 am – 12:30 pm<br/>Thursdays: 12:30 – 2 pm
+      </div>
+      <div class="staff-email">✉ <a href="mailto:financial@gss.ubc.ca">financial@gss.ubc.ca</a></div>
+    </div>
+
+  </div>
+
+  <hr class="divider" />
+
+  <p class="section-eyebrow">Governance</p>
+  <h2 class="section-title">GSS Council</h2>
+  <p class="section-lead">The GSS Council is the primary governing body of the Society, made up of elected departmental graduate student representatives, the executive team, and graduate student senators.</p>
+
+  <div class="council-box">
+    <h3>Monthly Council Meetings</h3>
+    <p>Council meets on the third Thursday of every month in the Michael Kingsmill Forum (Room 4301) in the AMS Student Nest, from 5:30 – 7:30 pm. All meetings are open to graduate students and honorary members to attend. Contact the GSS President to request an invitation if you are not a graduate student.</p>
+    <a class="link-btn" href="https://gss.ubc.ca/council/" target="_blank">Learn About Council ↗</a>
+  </div>
+</main>
+
+<footer>
+  <p>Information sourced from <a href="https://gss.ubc.ca" target="_blank">gss.ubc.ca</a> · Graduate Student Society of UBC Vancouver</p>
+</footer>
+</body>
+</html>
