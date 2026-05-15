@@ -1,2 +1,2 @@
-# GSSVP-S.github.io
+# GSSVP-S
 Responsibilities and Plans 
